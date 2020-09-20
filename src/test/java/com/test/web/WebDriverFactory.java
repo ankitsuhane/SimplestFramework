@@ -7,13 +7,15 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 @Component
-@Scope("cucumber-glue")
+@ComponentScan("com.test")
 public class WebDriverFactory {
 
 	private static final Logger logger = LoggerFactory.getLogger(WebDriverFactory.class);
@@ -31,6 +33,8 @@ public class WebDriverFactory {
 	@Value("${webdriver.wait.secs}")
 	private int webDriverWait;
 
+	@Bean
+	@Scope("cucumber-glue")
 	public void setUpWebDriver() throws IllegalStateException {
 		switch (browser.toLowerCase()) {
 		case "firefox":
