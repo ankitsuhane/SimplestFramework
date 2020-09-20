@@ -1,4 +1,4 @@
-package com.web;
+package com.test.web;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -35,7 +35,8 @@ public class WebDriverFactory {
 		switch (browser.toLowerCase()) {
 		case "firefox":
 			logger.info("Running Firefox Web Driver with Driver Path:- {}", geckoDriver);
-			System.setProperty("webdriver.gecko.driver", geckoDriver);
+			//System.setProperty("webdriver.gecko.driver", geckoDriver);
+			WebDriverManager.firefoxdriver().setup();
 			webDriver = new FirefoxDriver();
 
 			break;
@@ -55,7 +56,5 @@ public class WebDriverFactory {
 		logger.info(String.format("Browser is set to %s", browser));
 	}
 
-	public final WebDriver getWebDriver() {
-		return webDriver;
-	}
+	public final WebDriver getWebDriver() {	return webDriver; }
 }

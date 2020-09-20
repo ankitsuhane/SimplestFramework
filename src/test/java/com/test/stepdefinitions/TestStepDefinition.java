@@ -1,20 +1,20 @@
-package com.stepdefinitions;
+package com.test.stepdefinitions;
 
 import static org.junit.Assert.assertEquals;
 
-import com.pagesactions.pages.HomePage;
-import com.pagesactions.pages.TestOnly;
+import com.test.web.pagesactions.actions.HomePageAction;
+import com.test.web.pagesactions.pages.HomePage;
+import com.test.web.pagesactions.pages.TestOnly;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
-
-import com.web.WebDriverFactory;
-
 import cucumber.api.java8.En;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 
 
 public class TestStepDefinition implements En {
+
+	@Lazy
+	@Autowired
+	HomePageAction homePageAction;
 
 	@Lazy
 	@Autowired
@@ -27,17 +27,17 @@ public class TestStepDefinition implements En {
 	public TestStepDefinition() {
 		
 		Given("I want to click onlinesbi link", () -> {
-			homePage.login();
-			assertEquals(0, 0);
+			homePageAction.login();
 		});
 
 		When("do nothing", () -> {
+			System.out.println("do nothing:" );
 			testOnly.loginClick();
-			assertEquals(0, 0);
 		});
 
 		Then("do nothings", () -> {
 			assertEquals(0, 0);
+
 		});
 	}
 }

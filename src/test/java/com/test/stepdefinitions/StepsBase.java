@@ -1,8 +1,8 @@
-package com.stepdefinitions;
+package com.test.stepdefinitions;
 
+import com.test.AppConfig;
 import org.springframework.test.context.ContextConfiguration;
 
-import com.AppConfig;
 
 import cucumber.api.java8.En;
 

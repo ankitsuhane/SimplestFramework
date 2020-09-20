@@ -1,4 +1,4 @@
-package com.stepdefinitions;
+package com.test.stepdefinitions;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -7,12 +7,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.web.WebDriverFactory;
+import com.test.web.WebDriverFactory;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import org.springframework.stereotype.Component;
 
 public class Hooks {
 	
@@ -30,6 +29,8 @@ public class Hooks {
 	@After
 	public void tearDown(Scenario scenario) {
 		logger.info("Tear down Web Driver!");
+
+        System.out.println("Webdriver in teardown: "+webDriverFactory.getWebDriver());
 		
         if (scenario.isFailed()) {
             try {

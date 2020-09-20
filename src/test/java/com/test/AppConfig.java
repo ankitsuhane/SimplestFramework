@@ -1,4 +1,4 @@
-package com;
+package com.test;
 
 
 import org.springframework.context.annotation.ComponentScan;
@@ -10,7 +10,7 @@ import org.springframework.context.annotation.PropertySource;
  *
  */
 @Configuration
-@ComponentScan(basePackages = {"com"})
+@ComponentScan(basePackages = {"com.test"})
 @PropertySource("classpath:application.properties")
 public class AppConfig {
 
